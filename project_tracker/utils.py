@@ -30,4 +30,8 @@ def make_table(rows, headers):
     """Render rows as a readable grid table using the tabulate package."""
     if not rows:
         return "(nothing to show)"
-    return
+    return tabulate(rows, headers=headers, tablefmt="rounded_outline")
+
+def truncate(text, width=40):
+    text = text or ""
+    return text if len(text) <= width else text[: width - 3] + "..."
